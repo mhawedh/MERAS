@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MERAS", "MERAS\MERAS.csproj", "{A3D5F059-B57C-4E52-8603-A02E060E0324}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3D5F059-B57C-4E52-8603-A02E060E0324}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3D5F059-B57C-4E52-8603-A02E060E0324}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3D5F059-B57C-4E52-8603-A02E060E0324}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3D5F059-B57C-4E52-8603-A02E060E0324}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1EAA3BE1-70F0-4238-B09D-9F9FE3830651}
+	EndGlobalSection
+EndGlobal
