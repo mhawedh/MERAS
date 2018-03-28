@@ -17,23 +17,22 @@ namespace MERAS.Models
 		[Display(Name = "Internships Description")]
 		public string FirstName { get; set; }
 
-		public int DepartmentID { get; set; }
-
 		[DataType(DataType.Date)]
 		[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-		public DateTime ApplyStartDay { get; set; }
-
+		public DateTime ApplyStartDate { get; set; }
+		
 		[DataType(DataType.Date)]
 		[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-		public DateTime ApplyFinishtDay { get; set; }
-
+		public DateTime ApplyFinishtDate { get; set; }
+		
 		[DataType(DataType.Date)]
 		[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-		public DateTime StartDay { get; set; }
-
+		public DateTime StartDate { get; set; }
+		
 		[DataType(DataType.Date)]
 		[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-		public DateTime FinishtDay { get; set; }
+		public DateTime FinishtDate { get; set; }
+
 		
 		[Required]
 		[StringLength(45)]
@@ -45,7 +44,12 @@ namespace MERAS.Models
 		[Display(Name = "City")]
 		public string City { get; set; }
 
+		//public ICollection<Student> Students { get; set; }
+
 		public ICollection<Department> Departments { get; set; }
+
+		// Navigation Property
+		public ICollection<ApplyForList> ApplyForLists { get; set; }
 
 	}
 }

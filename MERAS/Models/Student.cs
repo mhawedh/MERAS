@@ -24,8 +24,10 @@ namespace MERAS.Models
 		
 		public int CreditHrs { get; set; }
 
+		// Foreign Key
 		public int SupervisorID { get; set; }
 
+		// Foreign Key
 		public int DepartmentID { get; set; }
 
 		public int AssignedInternshipID { get; set; }
@@ -49,7 +51,9 @@ namespace MERAS.Models
 
 		public Department Department { get; set; }
 
-		public ICollection<Internships> internships { get; set; }
+		// Navigation Property
+		public ICollection<ApplyForList> ApplyForLists { get; set; }
 
+		
 	}
 }
