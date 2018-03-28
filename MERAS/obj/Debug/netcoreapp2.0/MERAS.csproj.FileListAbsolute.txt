@@ -3,7 +3,6 @@ E:\KAU\ECE\Courses\Semesters\EE499 Senior Project\EE499 Interns ​Platform\MERA
 E:\KAU\ECE\Courses\Semesters\EE499 Senior Project\EE499 Interns ​Platform\MERAS\MERAS\bin\Debug\netcoreapp2.0\MERAS.runtimeconfig.dev.json
 E:\KAU\ECE\Courses\Semesters\EE499 Senior Project\EE499 Interns ​Platform\MERAS\MERAS\bin\Debug\netcoreapp2.0\MERAS.dll
 E:\KAU\ECE\Courses\Semesters\EE499 Senior Project\EE499 Interns ​Platform\MERAS\MERAS\bin\Debug\netcoreapp2.0\MERAS.pdb
-E:\KAU\ECE\Courses\Semesters\EE499 Senior Project\EE499 Interns ​Platform\MERAS\MERAS\obj\Debug\netcoreapp2.0\MERAS.csprojResolveAssemblyReference.cache
 E:\KAU\ECE\Courses\Semesters\EE499 Senior Project\EE499 Interns ​Platform\MERAS\MERAS\obj\Debug\netcoreapp2.0\MERAS.csproj.CoreCompileInputs.cache
 E:\KAU\ECE\Courses\Semesters\EE499 Senior Project\EE499 Interns ​Platform\MERAS\MERAS\obj\Debug\netcoreapp2.0\MERAS.AssemblyInfoInputs.cache
 E:\KAU\ECE\Courses\Semesters\EE499 Senior Project\EE499 Interns ​Platform\MERAS\MERAS\obj\Debug\netcoreapp2.0\MERAS.AssemblyInfo.cs

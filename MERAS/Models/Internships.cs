@@ -12,6 +12,9 @@ namespace MERAS.Models
 		[Display(Name = "Internships ID")]
 		public int InternshipsID { get; set; }
 
+		[Display(Name = "Comany ID")]
+		public int CompanyID { get; set; }
+		
 		[Required]
 		[StringLength(45)]
 		[Display(Name = "Internships Description")]
@@ -43,6 +46,8 @@ namespace MERAS.Models
 		[StringLength(45)]
 		[Display(Name = "City")]
 		public string City { get; set; }
+
+		public Company Companies { get; set; }
 
 		//public ICollection<Student> Students { get; set; }
 

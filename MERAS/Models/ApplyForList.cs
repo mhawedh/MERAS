@@ -19,9 +19,9 @@ namespace MERAS.Models
 		[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 		public DateTime ApplyDate { get; set; }
 
-
 		public Student Student { get; set; }
-
+		
 		public Internships Internships { get; set; }
+
 	}
 }
