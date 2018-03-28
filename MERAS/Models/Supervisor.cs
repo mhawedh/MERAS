@@ -10,18 +10,17 @@ namespace MERAS.Models
     {
 		public int ID { get; set; }
 
-		[StringLength(45)]
 		[Required]
-		[Display(Name = "First Name")]
-		public string FirstName { get; set; }
-
 		[StringLength(45)]
-		[Required]
 		[Display(Name = "Last Name")]
 		public string LastName { get; set; }
 
-		public int NoOfStudents { get; set; }
-		public string Department { get; set; }
+		[Required]
+		[StringLength(45)]
+		[Display(Name = "First Name")]
+		public string FirstName { get; set; }
+			
+		public int DepartmentID { get; set; }
 
 		[Phone]
 		public int Phone { get; set; }
@@ -35,6 +34,8 @@ namespace MERAS.Models
 			get { return LastName + ", " + FirstName; }
 		}
 
+		public Department Department { get; set; }
 		public ICollection<Student> Students { get; set; }
+
 	}
 }

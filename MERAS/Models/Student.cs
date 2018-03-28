@@ -12,18 +12,23 @@ namespace MERAS.Models
 		public int StudentID { get; set; }
 
 		[Required]
+		[StringLength(45)]
+		[Display(Name = "Last Name")]
+		public string LastName { get; set; }
+
+		[Required]
 		[StringLength(45, ErrorMessage = "First name cannot be longer than 45 characters.")]
 		[Display(Name = "First Name")]
 		public string FirstName { get; set; }
 
-		[StringLength(45)]
-		[Required]
-		[Display(Name = "Last Name")]
-		public string LastName { get; set; }
-
+		
 		public int CreditHrs { get; set; }
 
-		public string Department { get; set; }
+		public int SupervisorID { get; set; }
+
+		public int DepartmentID { get; set; }
+
+		public int AssignedInternshipID { get; set; }
 
 		[Phone]
 		public int Phone { get; set; }
@@ -40,6 +45,11 @@ namespace MERAS.Models
 			}
 		}
 
-		//public ICollection<Enrollment> Enrollments { get; set; }
+		public Supervisor Supervisor { get; set; }
+
+		public Department Department { get; set; }
+
+		public ICollection<Internships> internships { get; set; }
+
 	}
 }
