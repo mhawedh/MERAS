@@ -33,7 +33,9 @@ namespace MERAS.Models
 		{
 			get { return LastName + ", " + FirstName; }
 		}
-
+		/*
+		 * Navigation Property
+		 */
 		public Department Department { get; set; }
 		public ICollection<Student> Students { get; set; }
 

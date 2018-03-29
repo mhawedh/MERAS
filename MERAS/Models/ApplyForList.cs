@@ -21,7 +21,7 @@ namespace MERAS.Models
 
 		public Student Student { get; set; }
 		
-		public Internships Internships { get; set; }
+		public Internship Internship { get; set; }
 
 	}
 }

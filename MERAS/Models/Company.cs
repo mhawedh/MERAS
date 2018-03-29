@@ -37,8 +37,10 @@ namespace MERAS.Models
 		[EmailAddress(ErrorMessage = "Invalid Email Address")]
 		public string ContactEmail { get; set; }
 
-		// Navigation Property
-		public ICollection<Internships> InternshipsList { get; set; }
+		/*
+		 * Navigation Property
+		 */
+		public ICollection<Internship> Internships { get; set; }
 		
 	}
 }

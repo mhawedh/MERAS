@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace MERAS.Models
 {
-    public class Internships
-    {
+	public class Internship
+	{
 
 		[Display(Name = "Internships ID")]
-		public int InternshipsID { get; set; }
+		public int ID { get; set; }
 
 		[Display(Name = "Comany ID")]
 		public int CompanyID { get; set; }
-		
+
 		[Required]
 		[StringLength(45)]
 		[Display(Name = "Internships Description")]
@@ -23,20 +23,20 @@ namespace MERAS.Models
 		[DataType(DataType.Date)]
 		[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 		public DateTime ApplyStartDate { get; set; }
-		
+
 		[DataType(DataType.Date)]
 		[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 		public DateTime ApplyFinishtDate { get; set; }
-		
+
 		[DataType(DataType.Date)]
 		[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 		public DateTime StartDate { get; set; }
-		
+
 		[DataType(DataType.Date)]
 		[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 		public DateTime FinishtDate { get; set; }
 
-		
+
 		[Required]
 		[StringLength(45)]
 		[Display(Name = "Country")]
@@ -46,7 +46,9 @@ namespace MERAS.Models
 		[StringLength(45)]
 		[Display(Name = "City")]
 		public string City { get; set; }
-
+		/*
+		 * Navigation Property
+		 */
 		public Company Companies { get; set; }
 
 		//public ICollection<Student> Students { get; set; }

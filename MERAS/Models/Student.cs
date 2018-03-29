@@ -9,7 +9,7 @@ namespace MERAS.Models
     public class Student
     {
 		[Display(Name = "Student ID")]
-		public int StudentID { get; set; }
+		public int ID { get; set; }
 
 		[Required]
 		[StringLength(45)]
@@ -46,12 +46,13 @@ namespace MERAS.Models
 				return LastName + ", " + FirstName;
 			}
 		}
-
+		/*
+		 * Navigation Property
+		 */
 		public Supervisor Supervisor { get; set; }
 
 		public Department Department { get; set; }
 
-		// Navigation Property
 		public ICollection<ApplyForList> ApplyForLists { get; set; }
 
 		
