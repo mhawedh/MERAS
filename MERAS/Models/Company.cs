@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MERAS.Models
 {
-    public class Company
+	public class Company
     {
 		[Key]
 		public int ID { get; set; }
@@ -32,7 +29,7 @@ namespace MERAS.Models
 		public string ContactFirstName { get; set; }
 
 		[Phone]
-		public int ContactPhone { get; set; }
+		public string ContactPhone { get; set; }
 
 		[EmailAddress(ErrorMessage = "Invalid Email Address")]
 		public string ContactEmail { get; set; }

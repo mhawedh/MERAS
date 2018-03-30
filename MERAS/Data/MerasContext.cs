@@ -1,13 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MERAS.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MERAS.Data
 {
-    public class MerasContext : DbContext
+	public class MerasContext : DbContext
 	{
 		public MerasContext(DbContextOptions<MerasContext> options) : base(options)
 		{

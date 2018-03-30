@@ -28,12 +28,13 @@ namespace MERAS.Models
 		public int SupervisorID { get; set; }
 
 		// Foreign Key
-		public int DepartmentID { get; set; }
+		[StringLength(2)]
+		public string DepartmentID { get; set; }
 
 		public int AssignedInternshipID { get; set; }
 
 		[Phone]
-		public int Phone { get; set; }
+		public string Phone { get; set; }
 
 		[EmailAddress(ErrorMessage = "Invalid Email Address")]
 		public string Email { get; set; }

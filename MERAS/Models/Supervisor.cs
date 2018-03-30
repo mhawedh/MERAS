@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MERAS.Models
 {
-    public class Supervisor
+	public class Supervisor
     {
 		public int ID { get; set; }
 
@@ -19,11 +16,12 @@ namespace MERAS.Models
 		[StringLength(45)]
 		[Display(Name = "First Name")]
 		public string FirstName { get; set; }
-			
-		public int DepartmentID { get; set; }
+
+		[StringLength(2)]
+		public string DepartmentID { get; set; }
 
 		[Phone]
-		public int Phone { get; set; }
+		public string Phone { get; set; }
 
 		[EmailAddress(ErrorMessage = "Invalid Email Address")]
 		public string Email { get; set; }

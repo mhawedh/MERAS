@@ -5,7 +5,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20180329195024_Initial.cs" />
+    <Compile Remove="Migrations\20180329195024_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20180329214524_Students.cs" />
+    <Compile Remove="Migrations\20180329214524_Students.Designer.cs" />
+    <Compile Remove="Migrations\20180330191259_Initial.cs" />
+    <Compile Remove="Migrations\20180330191259_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20180330204008_MHA.cs" />
+    <Compile Remove="Migrations\20180330204008_MHA.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.2" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Utils" Version="2.0.3" />
   </ItemGroup>
