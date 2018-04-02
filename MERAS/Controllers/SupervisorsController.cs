@@ -36,6 +36,8 @@ namespace MERAS.Controllers
 
             var supervisor = await _context.Supervisors
                 .Include(s => s.Department)
+				.Include(d => d.Students)
+				.AsNoTracking()
                 .SingleOrDefaultAsync(m => m.ID == id);
             if (supervisor == null)
             {
@@ -48,7 +50,7 @@ namespace MERAS.Controllers
         // GET: Supervisors/Create
         public IActionResult Create()
         {
-            ViewData["DepartmentID"] = new SelectList(_context.Departments, "ID", "ID");
+            ViewData["DepartmentID"] = new SelectList(_context.Departments, "ID", "Name");
             return View();
         }
 
@@ -57,15 +59,25 @@ namespace MERAS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,LastName,FirstName,DepartmentID,Phone,Email")] Supervisor supervisor)
+        public async Task<IActionResult> Create([Bind("LastName,FirstName,DepartmentID,Phone,Email")] Supervisor supervisor)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(supervisor);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["DepartmentID"] = new SelectList(_context.Departments, "ID", "ID", supervisor.DepartmentID);
+			try
+			{
+				if (ModelState.IsValid)
+				{
+					_context.Add(supervisor);
+					await _context.SaveChangesAsync();
+					return RedirectToAction(nameof(Index));
+				}
+			}
+			catch (DbUpdateException /* ex */)
+			{
+				//Log the error (uncomment ex variable name and write a log.
+				ModelState.AddModelError("", "Unable to save changes. " +
+					"Try again, and if the problem persists " +
+					"see your system administrator.");
+			}
+			ViewData["DepartmentID"] = new SelectList(_context.Departments, "ID", "Name", supervisor.DepartmentID);
             return View(supervisor);
         }
 
@@ -82,7 +94,7 @@ namespace MERAS.Controllers
             {
                 return NotFound();
             }
-            ViewData["DepartmentID"] = new SelectList(_context.Departments, "ID", "ID", supervisor.DepartmentID);
+            ViewData["DepartmentID"] = new SelectList(_context.Departments, "ID", "Name", supervisor.DepartmentID);
             return View(supervisor);
         }
 
@@ -118,7 +130,7 @@ namespace MERAS.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DepartmentID"] = new SelectList(_context.Departments, "ID", "ID", supervisor.DepartmentID);
+            ViewData["DepartmentID"] = new SelectList(_context.Departments, "ID", "Name", supervisor.DepartmentID);
             return View(supervisor);
         }
 

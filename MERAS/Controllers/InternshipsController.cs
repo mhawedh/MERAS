@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -10,22 +8,23 @@ using MERAS.Models;
 
 namespace MERAS.Controllers
 {
-    public class CompaniesController : Controller
+	public class InternshipsController : Controller
     {
         private readonly MerasContext _context;
 
-        public CompaniesController(MerasContext context)
+        public InternshipsController(MerasContext context)
         {
             _context = context;
         }
 
-        // GET: Companies
+        // GET: Internships
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Companies.ToListAsync());
+            var merasContext = _context.Internships.Include(i => i.Company);
+            return View(await merasContext.ToListAsync());
         }
 
-        // GET: Companies/Details/5
+        // GET: Internships/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,40 +32,42 @@ namespace MERAS.Controllers
                 return NotFound();
             }
 
-            var company = await _context.Companies
-				.Include(i => i.Internships)
+            var internship = await _context.Internships
+                .Include(i => i.Company)
                 .SingleOrDefaultAsync(m => m.ID == id);
-            if (company == null)
+            if (internship == null)
             {
                 return NotFound();
             }
 
-            return View(company);
+            return View(internship);
         }
 
-        // GET: Companies/Create
+        // GET: Internships/Create
         public IActionResult Create()
         {
+            ViewData["CompanyID"] = new SelectList(_context.Companies, "ID", "Name");
             return View();
         }
 
-        // POST: Companies/Create
+        // POST: Internships/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Address,ContactLastName,ContactFirstName,ContactPhone,ContactEmail")] Company company)
+        public async Task<IActionResult> Create([Bind("ID,CompanyID,FirstName,ApplyStartDate,ApplyFinishtDate,StartDate,FinishtDate,Country,City")] Internship internship)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(company);
+                _context.Add(internship);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(company);
+            ViewData["CompanyID"] = new SelectList(_context.Companies, "ID", "Name", internship.CompanyID);
+            return View(internship);
         }
 
-        // GET: Companies/Edit/5
+        // GET: Internships/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -74,22 +75,23 @@ namespace MERAS.Controllers
                 return NotFound();
             }
 
-            var company = await _context.Companies.SingleOrDefaultAsync(m => m.ID == id);
-            if (company == null)
+            var internship = await _context.Internships.SingleOrDefaultAsync(m => m.ID == id);
+            if (internship == null)
             {
                 return NotFound();
             }
-            return View(company);
+            ViewData["CompanyID"] = new SelectList(_context.Companies, "ID", "Name", internship.CompanyID);
+            return View(internship);
         }
 
-        // POST: Companies/Edit/5
+        // POST: Internships/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Address,ContactLastName,ContactFirstName,ContactPhone,ContactEmail")] Company company)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,CompanyID,FirstName,ApplyStartDate,ApplyFinishtDate,StartDate,FinishtDate,Country,City")] Internship internship)
         {
-            if (id != company.ID)
+            if (id != internship.ID)
             {
                 return NotFound();
             }
@@ -98,12 +100,12 @@ namespace MERAS.Controllers
             {
                 try
                 {
-                    _context.Update(company);
+                    _context.Update(internship);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CompanyExists(company.ID))
+                    if (!InternshipExists(internship.ID))
                     {
                         return NotFound();
                     }
@@ -114,10 +116,11 @@ namespace MERAS.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(company);
+            ViewData["CompanyID"] = new SelectList(_context.Companies, "ID", "Name", internship.CompanyID);
+            return View(internship);
         }
 
-        // GET: Companies/Delete/5
+        // GET: Internships/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -125,30 +128,31 @@ namespace MERAS.Controllers
                 return NotFound();
             }
 
-            var company = await _context.Companies
+            var internship = await _context.Internships
+                .Include(i => i.Company)
                 .SingleOrDefaultAsync(m => m.ID == id);
-            if (company == null)
+            if (internship == null)
             {
                 return NotFound();
             }
 
-            return View(company);
+            return View(internship);
         }
 
-        // POST: Companies/Delete/5
+        // POST: Internships/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var company = await _context.Companies.SingleOrDefaultAsync(m => m.ID == id);
-            _context.Companies.Remove(company);
+            var internship = await _context.Internships.SingleOrDefaultAsync(m => m.ID == id);
+            _context.Internships.Remove(internship);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CompanyExists(int id)
+        private bool InternshipExists(int id)
         {
-            return _context.Companies.Any(e => e.ID == id);
+            return _context.Internships.Any(e => e.ID == id);
         }
     }
 }

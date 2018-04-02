@@ -26,10 +26,12 @@ namespace MERAS.Models
 		[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 		public DateTime ApplyFinishtDate { get; set; }
 
+		[Display(Name = "Start Date")]
 		[DataType(DataType.Date)]
 		[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 		public DateTime StartDate { get; set; }
 
+		[Display(Name = "Finish Date")]
 		[DataType(DataType.Date)]
 		[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
 		public DateTime FinishtDate { get; set; }
@@ -47,7 +49,7 @@ namespace MERAS.Models
 		/*
 		 * Navigation Property
 		 */
-		public Company Companies { get; set; }
+		public Company Company { get; set; }
 
 		//public ICollection<Student> Students { get; set; }
 

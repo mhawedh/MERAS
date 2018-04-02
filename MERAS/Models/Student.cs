@@ -31,6 +31,7 @@ namespace MERAS.Models
 		[StringLength(2)]
 		public string DepartmentID { get; set; }
 
+		[Display(Name = "Assigned Internship")]
 		public int AssignedInternshipID { get; set; }
 
 		[Phone]
@@ -52,6 +53,7 @@ namespace MERAS.Models
 		 */
 		public Supervisor Supervisor { get; set; }
 
+		[Display(Name = "Department Name")]
 		public Department Department { get; set; }
 
 		public ICollection<ApplyForList> ApplyForLists { get; set; }
